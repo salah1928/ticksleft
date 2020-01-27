@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+}
+body{
+    overflow-x: hidden;
+}
+#wrapper{
+    width: 100%;
+    display: grid;
+}
+.list-group{
+    justify-self: center;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-template-rows:1fr;
+}
+.card{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    .card-body{
+        display: grid;
+        grid-template-rows: 1fr 2fr 1fr;
+        h4{
+            font-size: calc(0.8vw + 0.5rem);
+        }
+        #tick{
+            font-size: calc(0.8vw + 0.8rem);
+            color: rgb(167, 167, 8);
+          
+        }
+        .card-text{
+            align-self: center;
+        }
+        a{
+            width: 50%;
+            height: 50%;
+            align-self: center;
+            justify-self: center;
+        }
+    }
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h1>Tick Tick</h1>
+<div id="wrapper">
+    <ul class="list-group">
+        {% for prod in prods %}
+        <li class="list-group-item">
+            <div class="card" style="width:100%">
+                <img  class="card-img-top" src={{prod.img}} alt="Card image">
+                <div class="card-body">
+                  <h4 class="card-title">{{prod.title}}</h4>
+                  <p class="card-text">
+                    {% if prod.ticks %}
+                        {% for tick in prod.ticks %}
+                        <span id="tick">{{tick.type}} : <span>{{tick.quantity}}</span></span><br/>
+                    {% endfor %}
+                    {% else %}
+                        All Sold out 
+                    {% endif %}
+                  </p>
+                  <a href={{prod.url}} class="btn btn-primary">Buy</a>
+                </div>
+              </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
