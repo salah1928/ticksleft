@@ -12,21 +12,31 @@ def getprods():
     products = page_soup.findAll("a",{"class":"product"})
 
     prods = []
-    for i in range(4,12):
+    for i in range(4,28):
         ticks = []
         product_url = 'https://www.pohodafestival.sk' + products[i]['href']
         uwuclient = ureq(product_url)
         product_html = uwuclient.read()
         uwuclient.close()
         product_soup =soup(product_html,'html.parser')
-        spans = product_soup.findAll('span',{'class':'product-detail-option-container'})
         title = product_soup.find('h1').get_text()
         img = 'https://www.pohodafestival.sk' + product_soup.find('div',{'class':'product-detail-images'}).a.img['src']
-        for span in spans:
-            # print(title.get_text() + '==' + span.label.get_text() + ':' + span.input['data-stock'])
-            ticks.append({'type':span.label.get_text(),'quantity':span.input['data-stock']})
+
+        spans = product_soup.findAll('span',{'class':'product-detail-option-container'})
+        if(len(spans) > 0):
+            for span in spans:
+                ticks.append({'type':span.label.get_text(),'quantity':span.input['data-stock']})
+                
+        elif(len(spans) == 0):
+            if product_soup.find('input',{'id':'quantity'}) is None:
+                ticks.append({'type':'sold','quantity':'out'})
+            else:
+                quantity = product_soup.find('input',{'id':'quantity'})['max']
+                ticks.append({'type':'e-ticket','quantity':quantity})
+                
+        else: 
+            print("what the...")
         prods.append({'title':title,'ticks':ticks,'url':product_url,'img':img})
-        
     return prods
 
 

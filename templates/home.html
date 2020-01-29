@@ -14,8 +14,6 @@
                         {% for tick in prod.ticks %}
                         <span id="tick">{{tick.type}} : <span>{{tick.quantity}}</span></span><br/>
                     {% endfor %}
-                    {% else %}
-                        All Sold out 
                     {% endif %}
                   </p>
                   <a href={{prod.url}} class="btn btn-primary">Buy</a>
