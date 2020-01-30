@@ -4,6 +4,7 @@
 
 body {
   overflow-x: hidden;
+  background: #110B11;
 }
 
 #wrapper {
@@ -12,16 +13,24 @@ body {
   display: grid;
 }
 
+.bg-dark {
+  background-color: #202C39 !important;
+}
+
 .list-group {
   -ms-grid-column-align: center;
       justify-self: center;
   width: 90%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
   -ms-grid-rows: 1fr;
       grid-template-rows: 1fr;
+}
+
+.list-group-item {
+  border: none;
 }
 
 .card {
@@ -29,8 +38,6 @@ body {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr 2fr;
-      grid-template-rows: 1fr 2fr;
 }
 
 .card .card-body {
@@ -42,22 +49,27 @@ body {
 
 .card .card-body h4 {
   font-size: calc(0.8vw + 0.5rem);
+  text-align: center;
 }
 
-.card .card-body #tick {
-  font-size: calc(0.8vw + 0.8rem);
+.card .card-body .tick {
+  font-size: calc(0.7vw + 0.7rem);
   color: #a7a708;
 }
 
 .card .card-body .card-text {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
+  -ms-grid-row-align: center;
       align-self: center;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  width: 90%;
 }
 
 .card .card-body a {
   width: 50%;
-  height: 50%;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;

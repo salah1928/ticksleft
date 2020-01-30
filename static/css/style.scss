@@ -3,36 +3,49 @@
 }
 body{
     overflow-x: hidden;
+    background: #110B11;
 }
+$accent:#202C39;
 #wrapper{
     width: 100%;
     display: grid;
+}
+.bg-dark{
+    background-color:$accent !important;
 }
 .list-group{
     justify-self: center;
     width: 90%;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    grid-template-rows:1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+.list-group-item{
+    border: none;
 }
 .card{
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    
     .card-body{
         display: grid;
         grid-template-rows: 1fr 2fr 1fr;
         h4{
             font-size: calc(0.8vw + 0.5rem);
+            text-align: center;
         }
-        #tick{
-            font-size: calc(0.8vw + 0.8rem);
+        .tick{
+            font-size: calc(0.7vw + 0.7rem);
             color: rgb(167, 167, 8);
-          
+            
         }
         .card-text{
             align-self: center;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns:1fr 1fr;
+            width: 90%;
         }
         a{
             width: 50%;
