@@ -20,7 +20,7 @@ selenium==3.141.0
 soupsieve==1.9.2
 stem==1.7.1
 torrequest==0.1.0
-urllib3==1.25.3
+urllib3==1.25.8
 virtualenv==16.7.3
 virtualenv-clone==0.5.3
 Werkzeug==0.16.1
